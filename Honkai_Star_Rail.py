@@ -245,6 +245,7 @@ class SRA:
             sra_config_obj.apigithub_proxy = option
             title = _("请选择你的仓库来源：")
             options = ["Night-stars-1"]
+            options = ["jiuerd"]
             option = questionary.select(title, options).ask()
             sra_config_obj.github_source = option
             while True:
