@@ -319,6 +319,8 @@ class SRA:
             log.info(_("开始运行，请勿移动鼠标和键盘"))
             log.info(_("若脚本运行无反应,请使用管理员权限运行"))
             self.option_dict[option]()
+ # 开始时间           
+starttime=time.time()
 
 if __name__ == "__main__":
     join_time = read_json_file(CONFIG_FILE_NAME).get("join_time", {})
@@ -365,3 +367,15 @@ if __name__ == "__main__":
         log.error(traceback.format_exc())
     finally:
         sra.stop()
+
+    #锄地结束时间
+    endtime=time.time()
+    #锄地运行时间
+    runtime=endtime-starttime
+    #锄地运行时间时分秒格式化
+    m,s=divmod(runtime,60)
+    h,m=divmod(m,60)
+    #输出时间结果
+    print("开始锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(starttime)))
+    print("结束锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(endtime)))
+    print("锄地总耗时：","%02d时%02d分%02d秒" % (h, m, s))
