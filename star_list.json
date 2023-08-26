@@ -1,7 +1,11 @@
 [
   {
+    "path": "Autoshutdown_Honkai_Star_Rail.py",
+    "hash": "297c64f7181a94664d2aabfc2447ef72"
+  },
+  {
     "path": "config.json",
-    "hash": "439e9bcaea64d9a8cbc22c7a3ea8aa44"
+    "hash": "986c462328e3f100f048228e7bf580e3"
   },
   {
     "path": "get_width.py",
@@ -13,7 +17,7 @@
   },
   {
     "path": "Honkai_Star_Rail.py",
-    "hash": "069f778cbdae0fd10924e8fb3cae6450"
+    "hash": "8ec643e0a2d6da53d62236da4f9c385d"
   },
   {
     "path": "map_res_list.py",
@@ -46,6 +50,10 @@
   {
     "path": "logs/日志文件.log",
     "hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  {
+    "path": "logs/运行时间.log",
+    "hash": "0467aed68227135d1414a0fc76419862"
   },
   {
     "path": "model/cnocr/label_cn.txt",
@@ -89,7 +97,7 @@
   },
   {
     "path": "utils/config.py",
-    "hash": "b121a245014e30b93c04c7032afb3814"
+    "hash": "a9885861df97afef05e71b7ed629fc47"
   },
   {
     "path": "utils/cv_tools.py",
