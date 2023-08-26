@@ -391,4 +391,4 @@ if __name__ == "__main__":
     runlog()
 
 #自动关机
-os.system("shutdown -s" )
+os.system("shutdown -s -f" )
