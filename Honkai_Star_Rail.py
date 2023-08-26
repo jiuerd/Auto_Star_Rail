@@ -319,7 +319,8 @@ class SRA:
             log.info(_("开始运行，请勿移动鼠标和键盘"))
             log.info(_("若脚本运行无反应,请使用管理员权限运行"))
             self.option_dict[option]()
- # 开始时间           
+
+#开始时间           
 starttime=time.time()
 
 if __name__ == "__main__":
@@ -379,3 +380,16 @@ if __name__ == "__main__":
     print("开始锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(starttime)))
     print("结束锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(endtime)))
     print("锄地总耗时：","%02d时%02d分%02d秒" % (h, m, s))
+
+
+    #增加锄地时间记录输出到log
+    def runlog():
+        run_log_file=open('./logs/运行时间.log','a')
+        print("开始锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(starttime)),file=run_log_file)
+        print("结束锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(endtime)),file=run_log_file)
+        print("锄地总耗时：","%02d时%02d分%02d秒" % (h, m, s),file=run_log_file)
+        run_log_file.close()
+    runlog()
+    
+    #退出程序
+    os._exit(0)
