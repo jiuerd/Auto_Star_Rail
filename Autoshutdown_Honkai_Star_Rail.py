@@ -56,7 +56,7 @@ class SRA:
                 'keep_file': ['config.json', 'version.json', 'star_list.json', 'README_CHT.md', 'README.md'],
                 'zip_path': "StarRailAssistant-main/",
                 'name': _("脚本"),
-                'delete_file': True
+                'delete_file': False
             },
             _("地图"):{
                 'skip_verify': False,
