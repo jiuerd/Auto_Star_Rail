@@ -6640,6 +6640,7 @@ $
 盤
 サ
 マ
+迴
 <unused1>
 <unused2>
 <unused3>

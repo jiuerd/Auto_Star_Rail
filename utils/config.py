@@ -1,15 +1,15 @@
-import os
-import sys
-from typing import Any, get_type_hints, Union
-import orjson
 import gettext
 import inspect
-
+import os
+import sys
 from pathlib import Path
+from typing import Any, Union, get_type_hints
+
+import orjson
 from orjson import JSONDecodeError
 
-from .log import log
 from .exceptions import TypeError
+from .log import log
 
 CONFIG_FILE_NAME = "config.json"
 
@@ -66,8 +66,13 @@ def modify_json_file(filename: str, key, value):
     # 先读，再写
     data, file_path = read_json_file(filename, path=True)
     data[key] = value
-    with open(file_path, "wb") as f:
-        f.write(orjson.dumps(data, option=orjson.OPT_PASSTHROUGH_DATETIME | orjson.OPT_SERIALIZE_NUMPY | orjson.OPT_INDENT_2))
+    try:
+        with open(file_path, "wb") as f:
+            f.write(orjson.dumps(data, option=orjson.OPT_PASSTHROUGH_DATETIME | orjson.OPT_SERIALIZE_NUMPY | orjson.OPT_INDENT_2))
+    except PermissionError as e:
+        import time
+        time.sleep(1)
+        modify_json_file(filename, key, value)
 
 
 def get_file(path, exclude=[], exclude_file=None, get_path=False, only_place=False) -> list[str]:
@@ -273,7 +278,7 @@ class SRAData(metaclass=SRADataMeta):
     """是否开启冲刺"""
     join_time: int = 8
     """进入地图时间"""
-    deficiency: bool = False
+    deficiency: bool = True
     """是否开启捡漏"""
     img: int = 0
     """图片编号"""

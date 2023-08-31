@@ -8,22 +8,23 @@ Description:
 Copyright (c) 2023 by AlisaCat, All Rights Reserved. 
 """
 
-import os
-import time
-import shutil
 import asyncio
 import hashlib
-import flet as ft
-
+import os
+import shutil
+import time
 from pathlib import Path
-from tqdm import tqdm as tq
-from zipfile import ZipFile, BadZipFile
-from typing import Dict, Optional, Any, Union, Tuple, List
+from typing import Any, Dict, List, Optional, Tuple, Union
+from zipfile import BadZipFile, ZipFile
 
+import flet as ft
+from tqdm import tqdm as tq
+
+from .config import (CONFIG_FILE_NAME, _, get_file, normalize_file_path,
+                     sra_config_obj)
+from .exceptions import Exception
 from .log import log
 from .requests import *
-from .exceptions import Exception
-from .config import normalize_file_path, sra_config_obj, get_file, CONFIG_FILE_NAME, _
 
 tmp_dir = "tmp"
 

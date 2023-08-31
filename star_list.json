@@ -1,23 +1,23 @@
 [
   {
     "path": "Autoshutdown_Honkai_Star_Rail.py",
-    "hash": "297c64f7181a94664d2aabfc2447ef72"
+    "hash": "35e694570f05aaf06b4742e3a5d8fc6e"
   },
   {
     "path": "config.json",
-    "hash": "986c462328e3f100f048228e7bf580e3"
+    "hash": "3bd4517763575b18c164b45d9d0ee3d1"
   },
   {
     "path": "get_width.py",
-    "hash": "883cd3ffb3c1f7a0e8fff08ba61269b3"
+    "hash": "f638b665c2c0f9cdd841c8bd35ad0852"
   },
   {
     "path": "gui.py",
-    "hash": "84cd40fd4d75986833dd876667dcfffc"
+    "hash": "aae914d57203b3b571281e78f06b55aa"
   },
   {
     "path": "Honkai_Star_Rail.py",
-    "hash": "8ec643e0a2d6da53d62236da4f9c385d"
+    "hash": "c39310de39d30c781df98cdbe9e5de36"
   },
   {
     "path": "map_res_list.py",
@@ -25,11 +25,11 @@
   },
   {
     "path": "README.md",
-    "hash": "0f6d39b66dced44edc784e78b8f8a362"
+    "hash": "8ca2a0e7c1b6beee37a77f5955e9ee00"
   },
   {
     "path": "requirements.txt",
-    "hash": "8ddf218f9469f91f0cb38ef37f281cd1"
+    "hash": "c639eae5881af89c0139e5b91b1c65f5"
   },
   {
     "path": "locale/EN/LC_MESSAGES/sra.mo",
@@ -45,19 +45,35 @@
   },
   {
     "path": "logs/战斗日志.log",
-    "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    "hash": "d01e018ac16d80cbc684e67cadedfc4b"
   },
   {
     "path": "logs/日志文件.log",
-    "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    "hash": "42fb47ef7527abda6ac635c91475082a"
   },
   {
     "path": "logs/运行时间.log",
-    "hash": "0467aed68227135d1414a0fc76419862"
+    "hash": "f9b21dbe7e03b5732a531cc645b06b97"
+  },
+  {
+    "path": "logs/image/map_2-3_3-08310816.jpg",
+    "hash": "a0eb144066f2f30d8cea31ade841dbfe"
+  },
+  {
+    "path": "logs/image/map_2-5_2-08310834.jpg",
+    "hash": "6be486e7b863683479ac8904d1c446bb"
+  },
+  {
+    "path": "logs/image/map_3-4_5-08311907.jpg",
+    "hash": "5e0a5fb9809da34370b629bb2d96d271"
+  },
+  {
+    "path": "logs/image/map_3-4_5-08311909.jpg",
+    "hash": "975f7d98de6991deff3fcc085f10d979"
   },
   {
     "path": "model/cnocr/label_cn.txt",
-    "hash": "737f22f42115eb4638703dd0bca992db"
+    "hash": "c54ac1cfd285512a44807c14cb734d4b"
   },
   {
     "path": "model/cnocr/2.2/densenet_lite_114-fc/cnocr-v2.2-densenet_lite_114-fc-epoch=037-val-complete_match-epoch=0.9667-model.onnx",
@@ -85,31 +101,31 @@
   },
   {
     "path": "utils/adb.py",
-    "hash": "4a19acb6a8f259b2818172d4c3b5a1ba"
+    "hash": "82993dbc84090d081cff62d95d2d5d7a"
   },
   {
     "path": "utils/calculated.py",
-    "hash": "4d16bd886ba4ad599e37986afa5575f6"
+    "hash": "6b47f0f08c2aef0bbcea013fb64b7055"
   },
   {
     "path": "utils/commission.py",
-    "hash": "20412e43ddf0d1cfae4e47bce6141766"
+    "hash": "173d380cdc984361308350517864d38f"
   },
   {
     "path": "utils/config.py",
-    "hash": "a9885861df97afef05e71b7ed629fc47"
+    "hash": "045b9bac23551a0563f3abccbed12e45"
   },
   {
     "path": "utils/cv_tools.py",
-    "hash": "6529b623d0df7ce6109ac12eb61de50b"
+    "hash": "f2f721914b2a596a0167d2c6905ced9e"
   },
   {
     "path": "utils/exceptions.py",
-    "hash": "77cc57669183fd844fbc2345fef88a3f"
+    "hash": "368045dd7ff5b9c346d75d9b3dd6057b"
   },
   {
     "path": "utils/get_angle.py",
-    "hash": "912ae676d09bbba3e43b6e9755c7b266"
+    "hash": "1f56df0ccc972ab1955078fdc372870f"
   },
   {
     "path": "utils/log.py",
@@ -117,27 +133,23 @@
   },
   {
     "path": "utils/map.py",
-    "hash": "ad7447286ca04d45fe0b99c255ecf7c1"
+    "hash": "aae9d0a21b83956c42567ae531e22fc1"
   },
   {
     "path": "utils/record_v7.2.py",
-    "hash": "fbf62da314595e8f70487b8cf8944bee"
+    "hash": "03047d50df214d029132f5f9a7372aae"
   },
   {
     "path": "utils/requests.py",
-    "hash": "27952d3e76aca6502a540c69dbf58a2a"
-  },
-  {
-    "path": "utils/route_helper.py",
-    "hash": "15e2408dd8f38085b353d0dfb09b8676"
+    "hash": "f004e90febde2faeb7577e928df8380d"
   },
   {
     "path": "utils/simulated_universe.py",
-    "hash": "890a20cdab903a321eb22430e7f98291"
+    "hash": "a034ae2b2de94b16d3ac6ed1dfe3a807"
   },
   {
     "path": "utils/update_file.py",
-    "hash": "277e054cec1d5633d0844fffbdd9e5c0"
+    "hash": "f1decf96f8be44a7d9812044e74aa31c"
   },
   {
     "path": "whl/cnocr-2.2.2.3-py3-none-any.whl",

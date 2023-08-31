@@ -17,19 +17,18 @@ import importlib
 import tqdm
 
 from docopt import docopt
-from questionary import ValidationError
 from pluggy import PluginManager
 
 from get_width import get_width
 from utils.log import log, fight_log
-from utils.config import read_json_file, load_all_config_data, modify_json_file, add_key_value, read_maps, CONFIG_FILE_NAME, _
+from utils.config import read_json_file, load_all_config_data, modify_json_file, add_key_value, read_maps, CONFIG_FILE_NAME, sra_config_obj, _
 from utils.simulated_universe import Simulated_Universe
 from utils.update_file import update_file
 from utils.commission import Commission
 from utils.calculated import calculated
 from utils.exceptions import Exception
 from utils.map import Map as map_word
-from utils.requests import *
+from utils.requests import get
 
 game_title = _("崩坏：星穹铁道")
 plugins_path = "plugins"
@@ -57,7 +56,7 @@ class SRA:
                 'keep_file': ['config.json', 'version.json', 'star_list.json', 'README_CHT.md', 'README.md'],
                 'zip_path': "StarRailAssistant-main/",
                 'name': _("脚本"),
-                'delete_file': False
+                'delete_file': True
             },
             _("地图"):{
                 'skip_verify': False,
@@ -157,7 +156,7 @@ class SRA:
                 option_ = questionary.select(title_, list(options_map.keys())).ask()
                 side_map = options_map[option_]
                 presets_list = read_json_file(CONFIG_FILE_NAME).get("presets", [])
-                presets_list = ['、'.join(i) for i in presets_list]
+                presets_list = ['、'.join(i) for i in sra_config_obj.presets]
                 choose_role = questionary.select(_("要使用的预设队伍:"), choices=presets_list).ask()
                 role_list = choose_role.split("、")
                 fate = [_('存护'), _('记忆'), _('虚无'), _('丰饶'), _('巡猎'), _('毁灭'), _('欢愉')]
@@ -184,7 +183,7 @@ class SRA:
             importlib.reload(utils.config)
             _ = utils.config._
             title = _("请选择代理地址：（不使用代理选空白选项）")
-            options = ['https://ghproxy.com/', 'https://ghproxy.net/', 'hub.fgit.ml', '']
+            options = ['https://ghproxy.com/', 'https://ghproxy.net/', '']
             url_ms = []
             pbar = tqdm.tqdm(total=len(options), desc=_('测速中'), unit_scale=True, unit_divisor=1024, colour="green")
             for index,url in enumerate(options):
@@ -204,7 +203,7 @@ class SRA:
             option = options[url_ms.index(questionary.select(title, url_ms).ask())]
             sra_config_obj.github_proxy = option
             title = _("请选择下载代理地址：（不使用代理选空白选项）")
-            options = ['https://ghproxy.com/', 'https://ghproxy.net/', 'raw.fgit.ml', '']
+            options = ['https://ghproxy.com/', 'https://ghproxy.net/', '']
             url_ms = []
             pbar = tqdm.tqdm(total=len(options), desc=_('测速中'), unit_scale=True, unit_divisor=1024, colour="green")
             for index,url in enumerate(options):
@@ -244,8 +243,7 @@ class SRA:
             option = options[url_ms.index(questionary.select(title, url_ms).ask())]
             sra_config_obj.apigithub_proxy = option
             title = _("请选择你的仓库来源：")
-            options = ["jiuerd",
-                       "Night-stars-1"]
+            options = ["Night-stars-1"]
             option = questionary.select(title, options).ask()
             sra_config_obj.github_source = option
             while True:
@@ -293,7 +291,7 @@ class SRA:
             (start, role_list) = self.choose_map(option) if not start else (start, role_list)
             if start:
                 log.info(_("脚本将自动切换至游戏窗口，请保持游戏窗口激活"))
-                calculated(game_title, start=False).switch_window()
+                #calculated(game_title, start=False).switch_window()
                 time.sleep(0.5)
                 get_width(game_title)
                 #map_instance.calculated.CONFIG = read_json_file(CONFIG_FILE_NAME)
@@ -312,7 +310,7 @@ class SRA:
                 raise Exception(role_list)
         else:
             log.info(_("脚本将自动切换至游戏窗口，请保持游戏窗口激活"))
-            calculated(game_title, start=False).switch_window()
+            #calculated(game_title, start=False).switch_window()
             time.sleep(0.5)
             get_width(game_title)
             #map_instance.calculated.CONFIG = read_json_file(CONFIG_FILE_NAME)
@@ -320,13 +318,10 @@ class SRA:
             log.info(_("若脚本运行无反应,请使用管理员权限运行"))
             self.option_dict[option]()
 
-#开始时间           
+ # 开始时间           
 starttime=time.time()
 
 if __name__ == "__main__":
-    join_time = read_json_file(CONFIG_FILE_NAME).get("join_time", {})
-    if type(join_time) == dict:
-        sra_config_obj.join_time = 9
     sra = SRA()
     try:
         sra.set_config()    # 无config直接更新时初始化config文件
@@ -344,19 +339,14 @@ if __name__ == "__main__":
                     options[options.index(_('更新资源'))] = _("更新资源")+f"({','.join(need_updata)})"
                 option = questionary.select(title, options).ask()
                 option = list(sra.option_dict.keys())[options.index(option)]
-                if option == _("更新资源"):
-                    sra.up_data()
-                    raise Exception(_("请重新运行"))
-                elif option == _("编辑配置"):
-                    sra.set_config(False)
-                elif option == None:
-                    ...
-                else:
-                    if option:
-                        sra.main(option)
+                if option is not None:
+                    if option == _("更新资源"):
+                        sra.up_data()
+                        raise Exception(_("请重新运行"))
+                    elif option == _("编辑配置"):
+                        sra.set_config(False)
                     else:
-                        if questionary.select(_("请问要退出脚本吗？"), [_("退出"), _("返回主菜单")]).ask() == _("返回主菜单"):
-                            select()
+                        sra.main(option)
             serial_map = args.get("--map") if args.get("--map") != "default" else "1-1_1" # 地图编号
             select() if not serial_map else sra.main(start=serial_map)
             sra.end()
@@ -369,7 +359,8 @@ if __name__ == "__main__":
     finally:
         sra.stop()
 
-    #锄地结束时间
+
+   #锄地结束时间
     endtime=time.time()
     #锄地运行时间
     runtime=endtime-starttime
@@ -381,15 +372,15 @@ if __name__ == "__main__":
     print("结束锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(endtime)))
     print("锄地总耗时：","%02d时%02d分%02d秒" % (h, m, s))
 
-
+    
     #增加锄地时间记录输出到log
     def runlog():
-        run_log_file=open('./logs/运行时间.log','a')
+        run_log_file=open('./logs/运行时间.log','a',encoding="utf-8")
         print("开始锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(starttime)),file=run_log_file)
         print("结束锄地时间",time.strftime("%Y年%m月%d日%H:%M:%S",time.localtime(endtime)),file=run_log_file)
         print("锄地总耗时：","%02d时%02d分%02d秒" % (h, m, s),file=run_log_file)
         run_log_file.close()
     runlog()
-    
-    #退出程序
-    os._exit(0)
+
+#退出脚本
+os._exit(0)

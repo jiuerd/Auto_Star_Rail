@@ -150,10 +150,9 @@ def page_main(page: ft.Page):
         page.vertical_alignment = "START"
         page.horizontal_alignment = "START"
         add(log_text)
-        calculated(_("崩坏：星穹铁道"), start=False).switch_window()
+        #calculated(_("崩坏：星穹铁道"), start=False).switch_window()
         time.sleep(0.5)
         get_width(_("崩坏：星穹铁道"))
-        import pyautogui # 缩放纠正
         map_word().auto_map(start)
         add(ft.ElevatedButton(_("返回"), on_click=to_page_main))
 
@@ -246,9 +245,9 @@ def page_main(page: ft.Page):
         fighting_list = [_('没打开'), _('打开了'), _('这是什么')]
         fighting = fighting_list[sra_config_obj.auto_battle_persistence]
 
-        github_proxy_list = ['https://ghproxy.com/', 'https://ghproxy.net/', 'hub.fgit.ml', "不设置代理"]
+        github_proxy_list = ['https://ghproxy.com/', 'https://ghproxy.net/', "不设置代理"]
         github_proxy = sra_config_obj.github_proxy
-        rawgithub_proxy_list = ['https://ghproxy.com/', 'https://ghproxy.net/', 'raw.fgit.ml', 'raw.iqiq.io', "不设置代理"]
+        rawgithub_proxy_list = ['https://ghproxy.com/', 'https://ghproxy.net/', 'raw.iqiq.io', "不设置代理"]
         rawgithub_proxy = sra_config_obj.rawgithub_proxy
         apigithub_proxy_list = ['https://github.srap.link/', "不设置代理"]
         apigithub_proxy = sra_config_obj.apigithub_proxy

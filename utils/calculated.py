@@ -1,29 +1,31 @@
 """
 系统控制项，以及玩家控制
 """
-import re
+import itertools
 import os
+import re
 import sys
 import time
-import win32api
-import itertools
-import cv2 as cv
-import numpy as np
-import pygetwindow as gw
-
-from cnocr import CnOcr
 from datetime import datetime
 from pathlib import Path
-from PIL import ImageGrab, Image
-from pynput import mouse
-from pynput.mouse import Controller as MouseController
-from pynput.keyboard import Controller as KeyboardController, Key
-from typing import Dict, Optional, Any, Union, Tuple, List, Literal
+from typing import Any, Dict, List, Literal, Optional, Tuple, Union
 
-from .config import sra_config_obj, CONFIG_FILE_NAME, get_file, _
+import cv2 as cv
+import numpy as np
+import pywinctl as pwc  # 跨平台支持
+import win32api
+from cnocr import CnOcr
+from PIL import Image, ImageGrab
+from pynput import mouse
+from pynput.keyboard import Controller as KeyboardController
+from pynput.keyboard import Key
+from pynput.mouse import Controller as MouseController
+
+from .config import CONFIG_FILE_NAME, _, get_file, sra_config_obj
+from .cv_tools import CV_Tools, show_img
 from .exceptions import Exception
 from .log import log
-from .cv_tools import CV_Tools, show_img
+
 #from .get_angle import Point
 
 class calculated(CV_Tools):
@@ -289,7 +291,7 @@ class calculated(CV_Tools):
             "map_3-6": _("鳞渊境"),
             "change_team": _("更换队伍"),
         }
-        
+
         if temp_name in temp_ocr:
             log.info(temp_name)
             if "orientation" in temp_name:
@@ -417,14 +419,18 @@ class calculated(CV_Tools):
         return True
 
     def check_fighting(self):
-         while True:
-                end_str = str(self.part_ocr((20,95,100,100)))
-                if any(substring in end_str for substring in self.end_list):
-                    log.info(_("未在战斗状态"))
-                    break
-                else:
-                    log.info(_("未知状态,可能遇袭处于战斗状态"))
-                time.sleep(1) # 避免长时间ocr
+        while True:
+            if (
+                self.compare_lists([0, 0, 222], self.get_pix_rgb(pos=(1435, 58))) and
+                self.compare_lists(self.get_pix_rgb(pos=(1435, 58)), [0, 0, 240]) and
+                self.compare_lists([20, 90, 80], self.get_pix_rgb(pos=(88, 979))) and
+                self.compare_lists(self.get_pix_rgb(pos=(88, 979)), [25, 100, 90])
+            ):
+                log.info(_("未在战斗状态"))
+                break
+            else:
+                log.info(_("未知状态,可能遇袭处于战斗状态"))
+            time.sleep(1) # 避免长时间ocr
 
     def fighting_old(self):
         """
@@ -479,7 +485,7 @@ class calculated(CV_Tools):
                 time.sleep(0.3)
                 if result["max_val"] < 0.95:
                     break
-                log.info(_("未发现敌人!"))    
+                log.info(_("未发现敌人!"))
                 return True
         time.sleep(2)
         self.wait_fight_end() # 无论是否识别到敌人都判断是否结束战斗，反正怪物袭击
@@ -511,8 +517,12 @@ class calculated(CV_Tools):
         start_time = time.time()  # 开始计算战斗时间
         while True:
             if type == 0:
-                end_str = str(self.part_ocr((20,95,100,100)))
-                if any(substring in end_str for substring in self.end_list):
+                if (
+                    self.compare_lists([0, 0, 222], self.get_pix_rgb(pos=(1435, 58))) and
+                    self.compare_lists(self.get_pix_rgb(pos=(1435, 58)), [0, 0, 240]) and
+                    self.compare_lists([20, 90, 80], self.get_pix_rgb(pos=(88, 979))) and
+                    self.compare_lists(self.get_pix_rgb(pos=(88, 979)), [25, 100, 90])
+                ):
                     log.info(_("完成自动战斗"))
                     break
             elif type == 1:
@@ -708,6 +718,13 @@ class calculated(CV_Tools):
         x, y = width/100*points[0], length/100*points[1]
         out = self.ocr.ocr(img_fp)
         data = {i['text'].replace(" ", ""): (int(left+x+(i['position'][2][0]+i['position'][0][0])/2),int(top+y+(i['position'][2][1]+i['position'][0][1])/2)) for i in out}
+
+        #修复迴星港识别错误
+        if "迥星港" in data:
+            data["迴星港"]=data["迥星港"]
+            del data["迥星港"]
+        #修复迴星港识别错误
+
         log.debug(data)
         return data
 
@@ -878,23 +895,6 @@ class calculated(CV_Tools):
                 return endtime
             time.sleep(0.1)
 
-    def switch_window(self, dt=0.1):
-        ws = gw.getWindowsWithTitle(self.title)
-        time.sleep(dt)
-        if len(ws) >= 1 :
-            for w in ws:
-                # 避免其他窗口也包含崩坏：星穹铁道，比如正好开着github脚本页面
-                # log.debug(w.title)
-                if w.title == self.title:
-                    #client.Dispatch("WScript.Shell").SendKeys('%')
-                    self.keyboard.press(Key.right)
-                    self.keyboard.release(Key.right)                     
-                    w.activate()
-                    break
-        else:
-            log.info(_('没找到窗口{title}').format(title=self.title))
-        time.sleep(dt)
-
     def open_map(self, open_key):
         while True:
             self.keyboard.press(open_key)
@@ -917,9 +917,13 @@ class calculated(CV_Tools):
         time.sleep(1) # 等待进入入画
         log.info(_("等待入画结束"))
         time.sleep(0.3) # 缓冲
-        while True:
-            end_str = str(self.part_ocr((0,95,100,100)))
-            if any(substring in end_str for substring in self.end_list):
+        while True:            
+            if (
+                self.compare_lists([0, 0, 222], self.get_pix_rgb(pos=(1435, 58))) and
+                self.compare_lists(self.get_pix_rgb(pos=(1435, 58)), [0, 0, 240]) and
+                self.compare_lists([20, 90, 80], self.get_pix_rgb(pos=(88, 979))) and
+                self.compare_lists(self.get_pix_rgb(pos=(88, 979)), [25, 100, 90])
+            ):
                 log.info(_("完成入画"))
                 break
             time.sleep(1.0) # 缓冲
@@ -951,26 +955,6 @@ class calculated(CV_Tools):
         """
         if self.DEBUG:
             map_name2id = {
-                "收容舱段": {
-                    "收容舱段-1": 1,
-                    "收容舱段-2": 6,
-                },
-                "城郊雪原": {
-                    "城郊雪原-1": 7,
-                    "城郊雪原-2": 7
-                },
-                "边缘道路": {
-                    "边缘道路-1": 51,
-                    "边缘道路-2": 8
-                },
-                "工造司": {
-                    "工造司-1": 9,
-                    "工造司-2": 9,
-                    "工造司-3": 9,
-                    "工造司-4": 9,
-                    "工造司-5": 9,
-                    "工造司-6": 9,
-                },
                 "丹鼎司": {
                     "丹鼎司-1": 2,
                     "丹鼎司-2": 3,
@@ -978,16 +962,13 @@ class calculated(CV_Tools):
                     "丹鼎司-4": 3,
                     "丹鼎司-5": 4,
                     "丹鼎司-6": 4,
-                },
-                "鳞渊境":{
-                    "鳞渊境-1": 5,
                 }
             }
             map_id = map_name2id.get(map_name.split("-")[0], {}).get(map_name, None)
             if not map_id:
                 return (0, 0)
             img = cv.imread(f"./picture/maps/{map_id}.png")
-            template = self.take_screenshot((4,8,10,20))[0]
+            template = self.take_screenshot((2.194802494802495, 4.509276437847866, 12.445738045738045, 23.283858998144712))[0]
             #img = img[self.pos[1]-100:img.shape[0]]
             max_scale_percent, max_val, max_loc, length, width = self.find_best_match(img, template, [124, 103, 102])
             #max_val, max_loc = match_scaled(img, template,2.09)
