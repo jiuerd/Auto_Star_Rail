@@ -1,11 +1,11 @@
 [
   {
     "path": "Autoshutdown_Honkai_Star_Rail.py",
-    "hash": "d292c71634d8676a67e5dd7de03ed9e6"
+    "hash": "e5ad439642ea3e4377e052683b17a8c7"
   },
   {
     "path": "config.json",
-    "hash": "3bd4517763575b18c164b45d9d0ee3d1"
+    "hash": "11adb58f085aa88a5a37c4ad97d72703"
   },
   {
     "path": "get_width.py",
@@ -113,7 +113,7 @@
   },
   {
     "path": "utils/config.py",
-    "hash": "045b9bac23551a0563f3abccbed12e45"
+    "hash": "7938628fecec13c33351de501f1c5f36"
   },
   {
     "path": "utils/cv_tools.py",

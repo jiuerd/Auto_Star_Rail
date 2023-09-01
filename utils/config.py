@@ -278,7 +278,7 @@ class SRAData(metaclass=SRADataMeta):
     """是否开启冲刺"""
     join_time: int = 8
     """进入地图时间"""
-    deficiency: bool = True
+    deficiency: bool = False
     """是否开启捡漏"""
     img: int = 0
     """图片编号"""
