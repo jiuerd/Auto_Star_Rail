@@ -1,11 +1,7 @@
 [
   {
     "path": "Autoshutdown_Honkai_Star_Rail.py",
-    "hash": "e5ad439642ea3e4377e052683b17a8c7"
-  },
-  {
-    "path": "config.json",
-    "hash": "11adb58f085aa88a5a37c4ad97d72703"
+    "hash": "d292c71634d8676a67e5dd7de03ed9e6"
   },
   {
     "path": "get_width.py",
@@ -73,7 +69,7 @@
   },
   {
     "path": "model/cnocr/label_cn.txt",
-    "hash": "c54ac1cfd285512a44807c14cb734d4b"
+    "hash": "e93278df26ad0b9f16b3da7120ce03a5"
   },
   {
     "path": "model/cnocr/2.2/densenet_lite_114-fc/cnocr-v2.2-densenet_lite_114-fc-epoch=037-val-complete_match-epoch=0.9667-model.onnx",

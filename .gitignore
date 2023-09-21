@@ -116,6 +116,7 @@ picture/
 tmp/
 plugins/
 StarRailAssistant_backup/
+Auto_Star_Rail_backup/
 /*test*.py
 /*map*.py
 new_cv_tools.py
