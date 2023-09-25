@@ -28,3 +28,4 @@ flet
 cryptography
 pluggy
 httpcore
+onnxruntime==1.15.1
