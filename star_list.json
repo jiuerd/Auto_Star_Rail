@@ -1,115 +1,111 @@
 [
   {
+    "path": "requirements.version.txt",
+    "hash": "0554786ec45e2afc687fefd2802c0c0a"
+  },
+  {
+    "path": "安装教程.md",
+    "hash": "e0227fb52a733719fad75b3d256c2804"
+  },
+  {
     "path": "Autoshutdown_Honkai_Star_Rail.py",
-    "hash": "309ee14996fc42670b21e74cf3612e59"
-  },
-  {
-    "path": "config.json",
-    "hash": "fdadaf7c8cecdae6aa9453008d210320"
-  },
-  {
-    "path": "get_width.py",
-    "hash": "f638b665c2c0f9cdd841c8bd35ad0852"
-  },
-  {
-    "path": "gui.py",
-    "hash": "aae914d57203b3b571281e78f06b55aa"
+    "hash": "4d0c54b2cd30c46f8ceedb2512ac607d"
   },
   {
     "path": "Honkai_Star_Rail.py",
     "hash": "1a0cd61d27939101f39fb7b8b280c28a"
   },
   {
-    "path": "README.md",
-    "hash": "8ca2a0e7c1b6beee37a77f5955e9ee00"
-  },
-  {
     "path": "requirements.txt",
     "hash": "4a48de8111cc4151c711fdda952363b0"
   },
   {
-    "path": "requirements.version.txt",
-    "hash": "23e9ac8ec50d77893caa8e226db70e82"
+    "path": "get_width.py",
+    "hash": "f638b665c2c0f9cdd841c8bd35ad0852"
   },
   {
-    "path": "安装教程.md",
-    "hash": "4fe6227763b0b00c30c37b775635b1d9"
+    "path": "README.md",
+    "hash": "8ca2a0e7c1b6beee37a77f5955e9ee00"
   },
   {
-    "path": "locale/EN/LC_MESSAGES/sra.mo",
-    "hash": "4c9ed87ca1d8f72de21590de507c9d32"
+    "path": "gui.py",
+    "hash": "aae914d57203b3b571281e78f06b55aa"
   },
   {
-    "path": "locale/zh_CN/LC_MESSAGES/sra.mo",
-    "hash": "0a0ccfe2f4f2da8626fda930bd84ef9c"
+    "path": "whl/Polygon3-3.0.9-cp311-cp311-win_amd64.whl",
+    "hash": "43a2cab179598fdaaa21da76cdaaaafc"
   },
   {
-    "path": "locale/zh_TC/LC_MESSAGES/sra.mo",
-    "hash": "ef66f8b317d24e3eb326e739cb9b00ee"
+    "path": "whl/cnstd-1.2.2-py3-none-any.whl",
+    "hash": "2e700dd1d42f71c71b739bd6afa67a8a"
+  },
+  {
+    "path": "whl/Polygon3-3.0.9.1-cp310-cp310-win_amd64.whl",
+    "hash": "0c19795eb68713cde783a434ea636ba9"
+  },
+  {
+    "path": "whl/httpx_socks-0.7.7-py3-none-any.whl",
+    "hash": "9c9fcdf730445180029471858d8e8c27"
+  },
+  {
+    "path": "whl/cnocr-2.2.2.3-py3-none-any.whl",
+    "hash": "fff249a0f8c75f5bc4f0f97c95880bd8"
   },
   {
     "path": "model/cnocr/label_cn.txt",
-    "hash": "e93278df26ad0b9f16b3da7120ce03a5"
-  },
-  {
-    "path": "model/cnocr/2.2/densenet_lite_114-fc/cnocr-v2.2-densenet_lite_114-fc-epoch=037-val-complete_match-epoch=0.9667-model.onnx",
-    "hash": "079f9e53539b1e636df518dfc8343f38"
+    "hash": "c54ac1cfd285512a44807c14cb734d4b"
   },
   {
     "path": "model/cnocr/2.2/densenet_lite_134-fc/cnocr-v2.2-densenet_lite_134-fc-epoch=034-complete_match_epoch=0.8376-model.onnx",
     "hash": "332265c72378b39e83ced6b4e42954c4"
   },
   {
-    "path": "model/cnocr/2.2/ppocr/en_number_mobile_v2.0_rec_infer.onnx",
-    "hash": "442ea7b4dabdbaec95af17a6d17c3503"
-  },
-  {
     "path": "model/cnocr/2.2/ppocr/en_PP-OCRv3_rec_infer.onnx",
     "hash": "003da6ca16cae88c5270882fc5e7417b"
   },
   {
-    "path": "model/cnstd/1.2/ppocr/ch_PP-OCRv3_det_infer.onnx",
-    "hash": "5732f8c84bd4cc0dab35094e7260f080"
+    "path": "model/cnocr/2.2/ppocr/en_number_mobile_v2.0_rec_infer.onnx",
+    "hash": "442ea7b4dabdbaec95af17a6d17c3503"
+  },
+  {
+    "path": "model/cnocr/2.2/densenet_lite_114-fc/cnocr-v2.2-densenet_lite_114-fc-epoch=037-val-complete_match-epoch=0.9667-model.onnx",
+    "hash": "079f9e53539b1e636df518dfc8343f38"
   },
   {
     "path": "model/cnstd/1.2/ppocr/en_PP-OCRv3_det_infer.onnx",
     "hash": "72708a3ac241e25fefbc606832dc7529"
   },
   {
-    "path": "utils/adb.py",
-    "hash": "82993dbc84090d081cff62d95d2d5d7a"
+    "path": "model/cnstd/1.2/ppocr/ch_PP-OCRv3_det_infer.onnx",
+    "hash": "5732f8c84bd4cc0dab35094e7260f080"
   },
   {
     "path": "utils/calculated.py",
     "hash": "6b47f0f08c2aef0bbcea013fb64b7055"
   },
   {
-    "path": "utils/commission.py",
-    "hash": "173d380cdc984361308350517864d38f"
-  },
-  {
-    "path": "utils/config.py",
-    "hash": "7938628fecec13c33351de501f1c5f36"
-  },
-  {
-    "path": "utils/cv_tools.py",
-    "hash": "f2f721914b2a596a0167d2c6905ced9e"
+    "path": "utils/update_file.py",
+    "hash": "f1decf96f8be44a7d9812044e74aa31c"
   },
   {
     "path": "utils/exceptions.py",
     "hash": "368045dd7ff5b9c346d75d9b3dd6057b"
   },
   {
-    "path": "utils/get_angle.py",
-    "hash": "1f56df0ccc972ab1955078fdc372870f"
+    "path": "utils/record_v7.2.py",
+    "hash": "03047d50df214d029132f5f9a7372aae"
+  },
+  {
+    "path": "utils/cv_tools.py",
+    "hash": "f2f721914b2a596a0167d2c6905ced9e"
+  },
+  {
+    "path": "utils/adb.py",
+    "hash": "82993dbc84090d081cff62d95d2d5d7a"
   },
   {
     "path": "utils/log.py",
     "hash": "172d7d4d63c1b3136c5600055e666967"
-  },
-  {
-    "path": "utils/record_v7.2.py",
-    "hash": "03047d50df214d029132f5f9a7372aae"
   },
   {
     "path": "utils/requests.py",
@@ -120,27 +116,27 @@
     "hash": "a034ae2b2de94b16d3ac6ed1dfe3a807"
   },
   {
-    "path": "utils/update_file.py",
-    "hash": "f1decf96f8be44a7d9812044e74aa31c"
+    "path": "utils/config.py",
+    "hash": "7938628fecec13c33351de501f1c5f36"
   },
   {
-    "path": "whl/cnocr-2.2.2.3-py3-none-any.whl",
-    "hash": "fff249a0f8c75f5bc4f0f97c95880bd8"
+    "path": "utils/get_angle.py",
+    "hash": "1f56df0ccc972ab1955078fdc372870f"
   },
   {
-    "path": "whl/cnstd-1.2.2-py3-none-any.whl",
-    "hash": "2e700dd1d42f71c71b739bd6afa67a8a"
+    "path": "utils/commission.py",
+    "hash": "173d380cdc984361308350517864d38f"
   },
   {
-    "path": "whl/httpx_socks-0.7.7-py3-none-any.whl",
-    "hash": "9c9fcdf730445180029471858d8e8c27"
+    "path": "locale/zh_CN/LC_MESSAGES/sra.mo",
+    "hash": "0a0ccfe2f4f2da8626fda930bd84ef9c"
   },
   {
-    "path": "whl/Polygon3-3.0.9-cp311-cp311-win_amd64.whl",
-    "hash": "43a2cab179598fdaaa21da76cdaaaafc"
+    "path": "locale/zh_TC/LC_MESSAGES/sra.mo",
+    "hash": "ef66f8b317d24e3eb326e739cb9b00ee"
   },
   {
-    "path": "whl/Polygon3-3.0.9.1-cp310-cp310-win_amd64.whl",
-    "hash": "0c19795eb68713cde783a434ea636ba9"
+    "path": "locale/EN/LC_MESSAGES/sra.mo",
+    "hash": "4c9ed87ca1d8f72de21590de507c9d32"
   }
 ]
