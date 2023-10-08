@@ -141,3 +141,6 @@ build.bat
 *.pot
 *.po
 /*.mo
+
+#gui
+gui.py
