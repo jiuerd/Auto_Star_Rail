@@ -1,6 +1,11 @@
+@echo off
+
+%1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
+
 chcp 65001
 
-@echo off
+rem 进入当前文件夹
+cd /d %~dp0
 
 rem 检查python环境
 echo 当前python版本为:
@@ -11,8 +16,6 @@ if not errorlevel 0 (
     exit /b 1
 )
 
-rem 进入当前文件夹
-cd /d %~dp0
 
 rem 检查虚拟环境后启动脚本
 if not exist env (
