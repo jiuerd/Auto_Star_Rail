@@ -264,7 +264,7 @@ class SRAData(metaclass=SRADataMeta):
     """打开地图的按钮"""
     level: str = "INFO"
     """日志等级"""
-    debug: bool = False
+    debug: bool = True
     """是否开启debug"""
     proxies: str = ""
     """代理"""
