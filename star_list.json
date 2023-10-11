@@ -9,11 +9,11 @@
   },
   {
     "path": "Autoshutdown_Honkai_Star_Rail.py",
-    "hash": "4d0c54b2cd30c46f8ceedb2512ac607d"
+    "hash": "0a4667ebae7920a08d50054ba0e195c2"
   },
   {
     "path": "Honkai_Star_Rail.py",
-    "hash": "1a0cd61d27939101f39fb7b8b280c28a"
+    "hash": "4ac4430d09b64550932f5dfd527a8c83"
   },
   {
     "path": "requirements.txt",
@@ -85,11 +85,11 @@
   },
   {
     "path": "utils/calculated.py",
-    "hash": "f2ac38801625125d8083472464175e9c"
+    "hash": "f6dad2c36055ea03868c77b05a99eacd"
   },
   {
     "path": "utils/update_file.py",
-    "hash": "f1decf96f8be44a7d9812044e74aa31c"
+    "hash": "801603d6390e0a565f52ba804a6ac2e0"
   },
   {
     "path": "utils/exceptions.py",
@@ -121,7 +121,7 @@
   },
   {
     "path": "utils/config.py",
-    "hash": "7938628fecec13c33351de501f1c5f36"
+    "hash": "39b6bb73a6895cbccf423f3e0e0783cd"
   },
   {
     "path": "utils/get_angle.py",
